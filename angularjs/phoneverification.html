@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+        <label for="number" >Phone No</label>
+        <input id="number" ng-model="phone_no" placeholder="enter your phone_no code" />
+        <label for="number" >{{message}}</label>
+        <button ng-click="submit()">Send Otp</button>
+        <br/>
+        <label for="otp" >Enter Otp</label>
+        <input id="otp" ng-model="otp" placeholder="enter the otp recieved" />
+        <label for="otp" >{{messageotp}}</label>
+        <button ng-click="submitotp()">Verify Otp</button>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope,$http) {
+	
+
+  $scope.submit=function()
+                        {let phone_no=$scope.phone_no;
+                        	$http({
+                                                method: 'POST',
+                                                url:'http://127.0.0.1:8000/phoneverification/sendsms/',
+                                                data: {
+                                                      'phone_no': phone_no,
+                                                     
+                                           
+                                                    }
+
+                              })
+                        .then(function(response) {
+                           
+                            $scope.message = response.data;
+                        },function(response)
+                        {
+                        	$scope.message = 'Invalid';
+
+                        });
+                      }
+  $scope.submitotp=function()
+                        {let otp=$scope.otp;
+                          let phone_no=$scope.phone_no;
+                          $http({
+                                                method: 'POST',
+                                                url:'http://127.0.0.1:8000/phoneverification/verifysms/',
+                                                data: {
+                                                      'phone_no': phone_no,
+                                                      'otp': otp
+                                           
+                                                    }
+
+                              })
+                        .then(function(response) {
+                           
+                            $scope.messageotp = response.data;
+                        },function(response)
+                        {
+                          $scope.messageotp = 'Invalid';
+
+                        });
+                      }
+                    
+
+
+
+
+
+                    });
+</script>
+
+</body>
+</html>

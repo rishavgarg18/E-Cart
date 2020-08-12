@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body ng-app="myApp" ng-controller="myCtrl">
+
+
+        <label for="ifsc" >Ifsc Code</label>
+        <input id="ifsc" ng-model="ifsc" placeholder="enter your ifsc code" />
+        <label for="ifsc" >{{message}}</label>
+        <button ng-click="submit()">Verify</button>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope,$http) {
+	
+
+  $scope.submit=function()
+  {let ifsc=$scope.ifsc;
+  	$http.get("https://ifsc.razorpay.com/"+ifsc,false)
+  .then(function(response) {
+     
+      $scope.message = 'Verified';
+  },function(response)
+  {
+  	$scope.message = 'Invalid';
+
+  });
+}});
+</script>
+
+</body>
+</html>
