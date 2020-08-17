@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HOME</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+   <script src="dashboard.js"></script>
+  <style>
+    .button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 6px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+    .button3 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #f44336;
+}
+.button3:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+    
+    /* Remove the jumbotron's default bottom margin */ 
+     .jumbotron {
+      margin-bottom: 0;
+      background-color: #4682B4;
+    }
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
+<body ng-app="DashboardView" ng-controller="ProductController">
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>E || Cart</h1>      
+    <p>Welcome {{email}}</p>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <!-- <a class="navbar-brand" href="#">Logo</a> -->
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">All Products</a></li>
+        <li><a href="#">My Orders</a></li>
+        <li><h2>Search:<input type="text" ng-model="test"></h2></li>
+      
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">    
+  <div class="row" >
+    <div class="col-sm-4" ng-repeat="product in products | filter:test">
+      <div class="panel panel-primary" style="height: 450px; width: 300px;">
+        <div class="panel-heading">{{product.category}}</div>
+        <div class="panel-body" style="height: 260px; width: 130px;"><img src="static/productimages/{{product.image}}" class="img-responsive" style="   max-width:100% height: 100px" alt="Image"></div>
+        <div class="panel-footer">{{product.name}}</div>
+        <div class="panel-heading">Rs -{{product.price}}/-</div>
+        <div class="panel-heading"><button class="button button3" ng-click="getproduct(product.id)">Order Now</button></div>
+      </div>
+    </div>
+    
+</div><br><br>
+
+<footer class="container-fluid text-center">
+  <p>Online Store Copyright @Rishav Garg</p>  
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>User Login</title>
+   <meta name="description" content="User login">
+   <meta name="keywords" content="login,user,musayazlik">
+   <meta name="author" content="Musa Yazlık">
+   <link rel="stylesheet" href="login.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+   <script src="login.js"></script>
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet">
+</head>
+
+<body ng-app="LoginView" ng-controller="SignUpController">
+
+   <section id="cart-section">
+      <div class="container">
+         <div class="row">
+           
+            <div class="cart cart2">
+               <div style="z-index: 1;" class="column">
+                  <div class="top-area ">
+                     <p>about us</p>
+                     <p>terms & conditions</p>
+                     <p>security</p>
+                  </div>
+                  <div class="log-in-area column">
+                     <h2>Register</h2>
+                     <label class="column" for=""> USER NAME
+                        <input type="text" ng-model="email" value="">
+                     </label>
+                     <label class="column" for=""> PASSWORD
+                        <input type="password" ng-model="password" value="">
+                     </label>
+                     <h1>{{myWelcome}}</h1>
+                  </div>
+                  <div class="button-area column"><button ng-click="submit()">Sign Up</button>
+                     <div class="account-area">
+                        <p>Already have an account? <a href="login.html">Login in  here</a></p>
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+           
+                  
+
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+</body>
+</html>

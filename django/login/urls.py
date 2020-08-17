@@ -1,9 +1,11 @@
-from .views import login,login_session_check
+from .views import login,register,verifyemail
 from django.urls import path
 
 urlpatterns = [
     
-    path('',login_session_check),
-    path('new/',login),
+    path('',login),
+    path('new/',register),
+    path('new/<str:email>/',verifyemail),
+    
 
 ]

@@ -23,5 +23,8 @@ urlpatterns = [
     path('login/', include('login.urls')),
     path('testsess/', include('testsess.urls')),
     path('phoneverification/', include('phoneverification.urls')),
-    path('email/', include('emailverify.urls')),
+    path('products/', include('products.urls')),
+    path('paytm/', include('paytm.urls')),
+     path('orders/', include('orders.urls')),
+
 ]

@@ -41,8 +41,11 @@ INSTALLED_APPS = [
      'corsheaders',
      'testsess',
      'phoneverification',
-     'emailverify',
      'login',
+     'products',
+     'paytmchecksum',
+     'paytm',
+     'orders',
 ]
 
 
@@ -66,7 +69,7 @@ EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_PASSWORD='Rg@12345678'
-EMAIL_HOST_USER='rgrgarg18'
+EMAIL_HOST_USER='rgrgarg18@gmail.com'
 EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 

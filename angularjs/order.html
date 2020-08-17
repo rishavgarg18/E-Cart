@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HOME</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+   <script src="dashboard.js"></script>
+  <style>
+    .button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 6px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+    .button3 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #f44336;
+}
+.button3:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+    
+    /* Remove the jumbotron's default bottom margin */ 
+     .jumbotron {
+      margin-bottom: 0;
+      background-color: #4682B4;
+    }
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
+<body ng-app="DashboardView" ng-controller="OrderController">
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>E || Cart</h1>      
+    <p>Welcome {{email}}</p>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <!-- <a class="navbar-brand" href="#">Logo</a> -->
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="dashboard.html">All Products</a></li>
+        <li><a href="#">My Orders</a></li>
+        
+      
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+    <div class="col-sm-6">     
+      <h2>Order Details</h2>
+      <h4>Name:   <input type="text" name="email" ng-model="email" placeholder="Enter Your Name"></h4>
+      <h4>Address: <input type="text" name="Name" ng-model="address" placeholder="Enter Your Address"></h4>
+      <h4>Pincode:  <input type="text" name="Name" ng-model="pincode" placeholder="Enter Your Pincode"></h4>
+       <label for="number" >Phone No</label>
+        <input id="number" ng-model="phoneno" placeholder="enter your phone_no code" />
+        <label for="number" >{{messagesendotp}}</label>
+        <button ng-click="submitphoneno()">Send Otp</button>
+        <br/>
+        <label for="otp" >Enter Otp</label>
+        <input id="otp" ng-model="otp" placeholder="enter the otp recieved" />
+        <label for="otp" >{{messageotp}}</label>
+        <button ng-click="submitotp()">Verify Otp</button>
+        <br/>
+         <label for="ifsc" >Ifsc Code</label>
+        <input id="ifsc" ng-model="ifsc" placeholder="enter your ifsc code" />
+        <label for="ifsc" >{{messageifsc}}</label>
+        <button ng-click="submitifsc()">Verify</button>
+      
+    </div>
+     <div class="col-sm-6"  ng-repeat="product in productinfo" >     
+      <h2>Product Details</h2>
+      <h3>Price: {{product.price}}</h3>
+      <img src="static/productimages/{{product.image}}" class="img-responsive" style="   max-width:100% height: 100px" alt="Image">
+      <h3>Name: {{product.name}}</h3>
+      <h5>Category: {{product.category}}</h5>
+      
+      <h5>Description: {{product.description}}</h5>
+    </div>
+
+
+
+
+
+<footer class="container-fluid text-center">
+  <p>Online Store Copyright @Rishav Garg</p>  
+
+</footer>
+
+</body>
+</html>
