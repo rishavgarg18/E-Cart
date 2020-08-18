@@ -7,4 +7,5 @@ class Product(models.Model):
     price=models.CharField(max_length=10)
     description=models.CharField(max_length=1000)
     image=models.CharField(max_length=1000)
+    dateadded=models.DateTimeField(auto_now_add=True)
 

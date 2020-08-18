@@ -89,9 +89,10 @@
 <div class="container">
     <div class="col-sm-6">     
       <h2>Order Details</h2>
-      <h4>Name:   <input type="text" name="email" ng-model="email" placeholder="Enter Your Name"></h4>
-      <h4>Address: <input type="text" name="Name" ng-model="address" placeholder="Enter Your Address"></h4>
-      <h4>Pincode:  <input type="text" name="Name" ng-model="pincode" placeholder="Enter Your Pincode"></h4>
+      <h4>Name:   <input type="text" name="name" ng-model="name" placeholder="Enter Your Name"></h4>
+      <h4>Email:   <input type="text" name="email" ng-model="email" placeholder="Enter Your Name"></h4>
+      <h4>Address: <input type="text" name="address" ng-model="address" placeholder="Enter Your Address"></h4>
+      <h4>Pincode:  <input type="text" name="pincode" ng-model="pincode" placeholder="Enter Your Pincode"></h4>
        <label for="number" >Phone No</label>
         <input id="number" ng-model="phoneno" placeholder="enter your phone_no code" />
         <label for="number" >{{messagesendotp}}</label>
@@ -106,6 +107,7 @@
         <input id="ifsc" ng-model="ifsc" placeholder="enter your ifsc code" />
         <label for="ifsc" >{{messageifsc}}</label>
         <button ng-click="submitifsc()">Verify</button>
+        <button ng-click="order()">Order and Pay Now</button>
       
     </div>
      <div class="col-sm-6"  ng-repeat="product in productinfo" >     

@@ -97,7 +97,40 @@ var app= angular.module("DashboardView",[])
 
 							  });
 							}
-			                    
+							$scope.order=function()
+						                        {let email=$scope.email;
+						                        	let name=$scope.name;
+						                        	let address=$scope.address;
+						                        	let pincode=$scope.pincode;
+						                        	let phoneno=$scope.phoneno;
+						                        	let productid=sessionStorage.getItem("productid");
+						                        	console.log(productid);
+						                 
+						                          $http({
+						                                                method: 'POST',
+						                                                url:'http://127.0.0.1:8000/orders/new/',
+						                                                data: {
+						                                                      'name': name,
+						                                                      'email': email,
+						                                                      'address': address,
+						                                                      'pincode': pincode,
+						                                                      'phoneno': phoneno,
+						                                                      'productid': productid
+						                                           
+						                                                    }
+
+						                              })
+						                        .then(function(response) {
+						                           
+						                            $scope.message = response.data;
+						                        },function(response)
+						                        {
+						                          $scope.message = 'Invalid Server error';
+
+						                        });
+						                      }
+
+
 			                      		
 
 
