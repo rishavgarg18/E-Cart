@@ -121,8 +121,11 @@ var app= angular.module("DashboardView",[])
 
 						                              })
 						                        .then(function(response) {
-						                           
-						                            $scope.message = response.data;
+						                    
+													$scope.orderid=response.data['orderid'];
+												
+													sessionStorage.setItem("orderid",$scope.orderid);
+													window.location.href='http://127.0.0.1:8000/orders/showpaymentpage/'+$scope.orderid;
 						                        },function(response)
 						                        {
 						                          $scope.message = 'Invalid Server error';

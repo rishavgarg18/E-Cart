@@ -37,8 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-     'corsheaders',
+   'corsheaders',
      'testsess',
      'phoneverification',
      'login',
@@ -78,7 +77,7 @@ ROOT_URLCONF = 'ekart.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/rishav/ekart/templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -101,9 +100,9 @@ DATABASES = {
 'ENGINE': 'django.db.backends.mysql',
 'NAME': 'ekart',
 'USER': 'root',
-'PASSWORD': 'password',
+'PASSWORD': '',
 'HOST': '127.0.0.1',
-'PORT': '',
+'PORT': '3306',
 'OPTIONS': {
 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
 }
