@@ -64,14 +64,14 @@ CORS_ORIGIN_ALLOW_ALL = True
 # SESSION_COOKIE_SAMESITE=None
 # SESSION_SAVE_EVERY_REQUEST=True
 
-EMAIL_USE_TLS = True
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD='Rg@12345678'
-EMAIL_HOST_USER='rgrgarg18@gmail.com'
-EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_HOST_PASSWORD='Rg@12345678'
+#EMAIL_HOST_USER='rgrgarg18@gmail.com'
+#EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
+#don't put yur password 
 ROOT_URLCONF = 'ekart.urls'
 
 TEMPLATES = [
